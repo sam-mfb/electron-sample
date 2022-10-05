@@ -1,4 +1,5 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
+import { readFile } from "fs/promises";
 import path from "path";
 
 const createWindow = () => {
@@ -11,6 +12,9 @@ const createWindow = () => {
   });
 
   win.loadFile("../index.html");
+  ipcMain.handle("readIndex", async () => {
+    return readFile(path.join(__dirname, "..", "index.html"), "utf-8");
+  });
 };
 
 app.whenReady().then(() => {
