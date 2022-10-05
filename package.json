@@ -2,8 +2,9 @@
   "name": "electron-sample",
   "version": "1.0.0",
   "description": "A sample electron app",
-  "main": "main.js",
+  "main": "bin/main.js",
   "scripts": {
+    "build": "rimraf ./bin && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/sam-mfb/electron-sample#readme",
   "devDependencies": {
     "electron": "^21.0.1",
+    "rimraf": "^3.0.2",
     "typescript": "^4.8.4"
   }
 }
